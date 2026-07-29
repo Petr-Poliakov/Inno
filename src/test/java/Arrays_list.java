@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Arrays_list {
-    @Test
+   // @Test
     void printTest(){
         String[] flowers = {"Rose","Fial","Sunflower"};
         flowers[0] = "Blueflower";
@@ -20,7 +20,7 @@ public class Arrays_list {
 
     }
 
-    @Test
+    //@Test
     void printTestArrayList(){
         List<String> flowers = List.of("Rose","Fial","Sunflower");
         System.out.println(flowers.get(0) +" "+ flowers.get(1)+" "+ flowers.get(2));

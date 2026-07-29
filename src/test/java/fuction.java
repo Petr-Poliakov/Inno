@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 public class fuction {
-    @Test
+    //@Test
     public void test(){
         printFive(); //- метод ничего
         System.out.println(returnFive()); //- вывод в консоль метода возвращающий 5

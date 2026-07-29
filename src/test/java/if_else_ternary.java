@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 public class if_else_ternary {
-@Test
+//@Test
     void printTest(){
     int x = 6;
     int y = 1;

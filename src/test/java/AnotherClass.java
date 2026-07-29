@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 public class AnotherClass{
-    @Test
+
     void test(){
         TestMain testMain = new TestMain();
     }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cycle {
-    @Test
+    //@Test
     void printTest() {
         String[] flowers = {"Rose", "Fial", "Sunflower"};
         flowers[0] = "Blueflower";

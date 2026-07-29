@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 public class variable_class{
-    @Test
+    //@Test
     void printTest(){
 //        int a = 12;
 //        int b = 21;

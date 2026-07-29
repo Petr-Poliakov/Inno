@@ -20,33 +20,38 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+//
+//tasks.register("simpleTask"){
+//    group = "build"
+//    println("Simple test runing")
+//}
+//tasks.named ("simpleTask"){
+//    dependsOn("clean")
+//}
+//tasks.register<Test>("smoke") {
+//    group = "tests "
+//    systemProperty("CIRCUIT", System.getProperty("circuit", "DEV"))
+//    useJUnitPlatform {
+//        includeTags("Smoke")
+//    }
 
-tasks.register("simpleTask"){
-    group = "build"
-    println("Simple test runing")
-}
-tasks.named ("simpleTask"){
-    dependsOn("clean")
-}
-tasks.register<Test>("smoke"){
-    group = "tests "
-    systemProperty("CIRCUIT", System.getProperty("circuit", "DEV"))
-    useJUnitPlatform{
-        includeTags("Smoke")
+
+//home work Тема 2. Gradle и JUnit
+//Задача запускает все тесты в проекте.
+    tasks.register<Test>("startAllMethods") {
+        group = "DZ"
+        useJUnitPlatform(){
+            includeTags("DZ1")
+        }
+        doLast {
+            println("Test run is over")
+        }
     }
 
+
+
+tasks.named("startAllMethods"){
 }
 
-tasks.register("starMethod"){
-/*    doLast {
-        println("Test method end")
-        println("===================================================")
-    }*/
-    println("===================================================")
-    println("Test method start")
-}
 
-tasks.register("endMethod"){
-    println("Test method end")
-    println("===================================================")
-}
+

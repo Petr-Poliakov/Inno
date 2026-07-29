@@ -1,13 +1,14 @@
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public static class DZ1 {
+public class DZ1 {
 
     //Условная логика
     //1 задание
-    @Test
     public boolean isEven(int n) {
         if (n % 2 == 0) {
             return true;
@@ -21,13 +22,11 @@ public static class DZ1 {
     }
 
     //3 задание
-    @Test
     public String checkAccess(int age){
         return age > 18 ? "Allowed" : "Denied";
     }
 
     //4 задание
-    @Test
     public String getGrade(int score){
         if ((score >= 0) && (score <= 20)){return "Score: E";}
         else if ((score >= 21) && (score <= 40)) {return "Score: D";}
@@ -42,7 +41,7 @@ public String blastOff(int start){
     String result = "";
     for (int i = start; i >= 1; i--){
         result += i+ " ";}
-    result += "Поехали";
+    result += "Поехали!";
 
     return result;
 }
@@ -75,7 +74,7 @@ public String getEvenInRange(int start, int end){
            evenList += i + " ";
         }
 }
-    return evenList;
+    return evenList.trim();
 
 }
 
@@ -108,15 +107,15 @@ public int calcAverage(List<Integer> list){
 
 }
 
+
 //12 задание
-public List<String> removeSpecificName(List<String> list, String nameToRemove){
-    List<String> newList = new ArrayList<>();
-    if(list.contains(nameToRemove)){
-        list.remove(nameToRemove);
+public static List<String> removeSpecificName(List<String> listString, String nameToRemove){
+    List<String> newList = new ArrayList<>(listString);
+    if(newList.contains(nameToRemove)){
+        newList.remove(nameToRemove);
         }
         return newList;
     }
-}
 
 
 
@@ -162,7 +161,7 @@ public List<String> removeSpecificName(List<String> list, String nameToRemove){
         System.out.println(dz.sumToN(5));
 
     //8 задание
-        System.out.println(dz.getEvenInRange(1,5));
+        System.out.println(dz.getEvenInRange(10,20));
 
     //9 задание
         System.out.println(dz.findMax(arr));
