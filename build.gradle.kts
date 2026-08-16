@@ -13,13 +13,23 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation ("org.junit.jupiter:junit-jupiter-params:5.10.0")
     // Source: https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
     implementation("com.fasterxml.jackson.core:jackson-core:2.20.1")
+    // Source: https://mvnrepository.com/artifact/org.assertj/assertj-core
+    testImplementation("org.assertj:assertj-core:3.27.7")
 }
 
+val tagsFilter: String? = findProperty("tags") as String?
+
 tasks.test {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        if (tagsFilter != null) {
+            includeTags(tagsFilter)
+        }
+    }
 }
+
 //
 //tasks.register("simpleTask"){
 //    group = "build"

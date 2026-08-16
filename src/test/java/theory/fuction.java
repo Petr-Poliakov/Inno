@@ -1,3 +1,5 @@
+package theory;
+
 import org.junit.jupiter.api.Test;
 
 public class fuction {
@@ -6,8 +8,8 @@ public class fuction {
         printFive(); //- метод ничего
         System.out.println(returnFive()); //- вывод в консоль метода возвращающий 5
         System.out.println(plus(2, 4)); //- вывод в консоль метода сложения 2х чисел
-        System.out.println(AnotherClass.getHi()); // - вызов метода из класса в структуре AnotherClass
-        System.out.println(AnotherClass.capitall("help me")); // - вызов метода из класса в структуре AnotherClass
+        System.out.println(AnotherClass.getHi()); // - вызов метода из класса в структуре theory.AnotherClass
+        System.out.println(AnotherClass.capitall("help me")); // - вызов метода из класса в структуре theory.AnotherClass
     }
 
 // метод  возвращает 5

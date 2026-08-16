@@ -1,3 +1,5 @@
+package theory;
+
 import org.junit.jupiter.api.Test;
 
 public class if_else_ternary {
