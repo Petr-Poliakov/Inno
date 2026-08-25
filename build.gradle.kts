@@ -16,8 +16,11 @@ dependencies {
     testImplementation ("org.junit.jupiter:junit-jupiter-params:5.10.0")
     // Source: https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
     implementation("com.fasterxml.jackson.core:jackson-core:2.20.1")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.20.1")
     // Source: https://mvnrepository.com/artifact/org.assertj/assertj-core
-    testImplementation("org.assertj:assertj-core:3.27.7")
+    //testImplementation("org.assertj:assertj-core:3.27.7") - виден в ТЕСТ
+    implementation("org.assertj:assertj-core:3.27.7") // - виден в проекте
+    implementation("io.rest-assured:rest-assured:5.5.6")
 }
 
 val tagsFilter: String? = findProperty("tags") as String?
@@ -58,7 +61,15 @@ tasks.test {
         }
     }
 
-
+tasks.register<Test>("RunApiTests") {
+    group = "DZ"
+    useJUnitPlatform() {
+        includeTags("api")
+    }
+    doLast {
+        println("API test run is over")
+    }
+}
 
 tasks.named("startAllMethods"){
 }
