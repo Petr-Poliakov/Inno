@@ -21,6 +21,10 @@ dependencies {
     //testImplementation("org.assertj:assertj-core:3.27.7") - виден в ТЕСТ
     implementation("org.assertj:assertj-core:3.27.7") // - виден в проекте
     implementation("io.rest-assured:rest-assured:5.5.6")
+    // Source: https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation("org.seleniumhq.selenium:selenium-java:4.40.0")
+    // Source: https://mvnrepository.com/artifact/com.codeborne/selenide
+    implementation("com.codeborne:selenide:7.16.0")
 }
 
 val tagsFilter: String? = findProperty("tags") as String?
