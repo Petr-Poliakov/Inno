@@ -15,6 +15,7 @@ public class GoodApi {
                 .post(ADD);
     }
 
+
     public Response getGoodById(long id){
         return getBuilder().getSpec()
                 .get("/" + id);

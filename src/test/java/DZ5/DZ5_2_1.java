@@ -17,7 +17,7 @@ public class DZ5_2_1 {
     }
 
     @Test
-    void addProductViaAdmin_thenVisibleOnStorefront() {
+    void addProductViaAdmin() {
         String productName = "НовыйТовар_" + System.currentTimeMillis();
 
         // логин в админку
