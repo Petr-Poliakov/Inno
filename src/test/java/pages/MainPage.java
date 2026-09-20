@@ -1,0 +1,87 @@
+package pages;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+public class MainPage {
+
+//elements
+private final SelenideElement cartButton = $("#open-cart-btn");
+    private final SelenideElement cartCountBadge = $("#cart-count");
+    private final SelenideElement adminLink = $("a.btn-outline[href='/admin']");
+
+
+    private final ElementsCollection productCards = $$(".product-card");
+
+    public MainPage open() {
+        Selenide.open("/");
+        return this;
+    }
+
+    //click()
+
+    public MainPage openCart() {
+        cartButton.click();
+        return this;
+    }
+
+    public MainPage openAdmin() {
+        adminLink.click();
+        return this;
+    }
+
+    public MainPage addToCart(String productName) {
+        addToCartButton(productName).click();
+        return this;
+    }
+
+    //input
+    public MainPage setQuantity(String productName, String quantity) {
+        SelenideElement input = quantityInput(productName);
+        input.clear();
+        input.sendKeys(quantity);
+        return this;
+    }
+
+
+
+    public SelenideElement productCardByName(String productName) {
+        return $(".product-card[data-name='" + productName + "']");
+    }
+
+    public SelenideElement productName(String productName) {
+        return productCardByName(productName).$("h4");
+    }
+
+    public SelenideElement productPrice(String productName) {
+        return productCardByName(productName).$(":scope > div:not(.qty-controls)");
+    }
+
+    public SelenideElement addToCartButton(String productName) {
+        return productCardByName(productName).$("button[data-action='add-to-cart']");
+    }
+
+    public SelenideElement quantityInput(String productName) {
+        return productCardByName(productName).$(".qty-input");
+    }
+
+    //геттеры для PageAssert
+
+    public SelenideElement cartButton() {
+        return cartButton;
+    }
+
+    public SelenideElement cartCountBadge() {
+        return cartCountBadge;
+    }
+
+    public SelenideElement adminLink() {
+        return adminLink;
+    }
+
+    public ElementsCollection productCards() {
+        return productCards;
+    }
+}

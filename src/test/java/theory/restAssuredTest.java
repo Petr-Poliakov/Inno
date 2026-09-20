@@ -6,6 +6,7 @@ import io.restassured.specification.RequestSender;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
+import static org.assertj.core.api.BDDAssumptions.given;
 
 public class restAssuredTest {
     public record Request1 (String args1, Integer args2){}

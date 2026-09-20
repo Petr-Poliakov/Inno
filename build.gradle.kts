@@ -21,7 +21,11 @@ dependencies {
     implementation("org.assertj:assertj-core:3.27.7")
     testImplementation("org.seleniumhq.selenium:selenium-java:4.43.0")
     testImplementation("com.codeborne:selenide:7.16.0")
-
+// Source: https://mvnrepository.com/artifact/com.codeborne/selenide
+    implementation("com.codeborne:selenide:7.18.1")
+    testImplementation("org.assertj:assertj-core:3.27.7")
+    // Source: https://mvnrepository.com/artifact/org.projectlombok/lombok
+    implementation("org.projectlombok:lombok:1.18.46")
 }
 
 val tagsFilter: String? = findProperty("tags") as String?
