@@ -15,7 +15,7 @@ public class DZ4_task2_methods {
 @Tag("api")
 @DisplayName("[GET]/goods/{id} - 200")
 void getGoodById_200() {
-    Response createResponse = api.createGoods("Товар", 10.0d);
+    Response createResponse = api.createGoods("Товар 99", 15.0d);
     createResponse.prettyPrint();// выводит ответ с БАГОМ api, странное поведение.
     long id = createResponse.jsonPath().getLong("data.id");
 

@@ -1,7 +1,11 @@
 plugins {
     id("java")
+    id("io.qameta.allure") version "2.9.1"
 }
 
+
+val allureVersion = "2.29.0"
+val aspectjVersion = "1.9.22"
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
@@ -26,7 +30,16 @@ dependencies {
     testImplementation("org.assertj:assertj-core:3.27.7")
     // Source: https://mvnrepository.com/artifact/org.projectlombok/lombok
     implementation("org.projectlombok:lombok:1.18.46")
+    // Source: https://mvnrepository.com/artifact/io.qameta.allure/allure-selenide
+    implementation(platform("io.qameta.allure:allure-bom:$allureVersion"))
+    implementation("io.qameta.allure:allure-rest-assured")
+    testImplementation(platform("io.qameta.allure:allure-bom:$allureVersion"))
+    testImplementation("io.qameta.allure:allure-junit5")
+    testImplementation("io.qameta.allure:allure-selenide")
+    testImplementation("org.aspectj:aspectjweaver:$aspectjVersion")
 }
+
+
 
 val tagsFilter: String? = findProperty("tags") as String?
 
@@ -70,6 +83,23 @@ tasks.test {
 
 tasks.named("startAllMethods"){
 }
+
+tasks.compileTestJava {
+    options.compilerArgs.add("-parameters")
+}
+tasks.compileJava {
+    options.compilerArgs.add("-parameters")
+}
+
+tasks.test {
+    val aspectjWeaver = configurations.testRuntimeClasspath.get()
+            .find { it.name.contains("aspectjweaver") }
+    if (aspectjWeaver != null) {
+        jvmArgs("-javaagent:${aspectjWeaver.absolutePath}")
+    }
+    systemProperty("allure.results.directory", "${layout.buildDirectory.get()}/allure-results")
+}
+
 
 
 

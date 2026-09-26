@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import io.qameta.allure.Step;
 public class MainPage {
 
 //elements
@@ -15,6 +16,7 @@ private final SelenideElement cartButton = $("#open-cart-btn");
 
     private final ElementsCollection productCards = $$(".product-card");
 
+    @Step("Открыть главную страницу")
     public MainPage open() {
         Selenide.open("/");
         return this;
@@ -22,22 +24,26 @@ private final SelenideElement cartButton = $("#open-cart-btn");
 
     //click()
 
+    @Step("Открыть корзину")
     public MainPage openCart() {
         cartButton.click();
         return this;
     }
 
+    @Step("Перейти в админку")
     public MainPage openAdmin() {
         adminLink.click();
         return this;
     }
 
+    @Step("Добавить товар \"{productName}\" в корзину")
     public MainPage addToCart(String productName) {
         addToCartButton(productName).click();
         return this;
     }
 
     //input
+    @Step("Установить количество \"{quantity}\" для товара \"{productName}\"")
     public MainPage setQuantity(String productName, String quantity) {
         SelenideElement input = quantityInput(productName);
         input.clear();

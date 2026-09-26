@@ -1,4 +1,5 @@
 package rest;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import rest.endpoints.Urls;
@@ -16,13 +17,15 @@ public class RestApiBuilder {
     public RestApiBuilder(){ //метод Иннициализатор кладет в переменную spec URL
         spec = given().baseUri(BASIC_IRL)
                 .basePath(Urls.GOODS)
+                .filter(new AllureRestAssured())
                 .log().all()
                 .relaxedHTTPSValidation();
 
     }
 
     public RestApiBuilder(String url){ //метод Иннициализатор кладет в переменную spec URL
-        spec = given().baseUri(url);
+        spec = given().baseUri(url)
+                .filter(new AllureRestAssured());
 
     }
 

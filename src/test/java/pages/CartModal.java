@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import io.qameta.allure.Step;
 public class CartModal {
 
     private final SelenideElement closeButton = $("#close-modal");
@@ -14,15 +15,18 @@ public class CartModal {
 
     // ---------------- click() ----------------
 
+    @Step("Закрыть окно корзины")
     public CartModal close() {
         closeButton.click();
         return this;
     }
 
+    @Step("Оформить заказ")
     public void checkout() {
         checkoutButton.click();
     }
 
+    @Step("Удалить товар \"{productName}\" из корзины")
     public CartModal removeItem(String productName) {
         removeButton(productName).click();
         return this;
